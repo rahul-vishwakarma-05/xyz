@@ -27,7 +27,7 @@ body{
     height: 100px;
     position: relative;
     top: 15px;
-    rotate: 45deg;
+    transform: rotate(45deg); 
     background: red;
     border-radius: 8px;
     z-index: 1;
