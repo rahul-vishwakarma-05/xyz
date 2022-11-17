@@ -1,136 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
-
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-html{
-font-family: 'Josefin Sans', sans-serif;;
-font-size: 62.5%;
 }
 body{
-    background:rgb(34, 1, 34);
     display: grid;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
+    background: lightgrey;
 }
- 
-.outer-cantainer{
-   display:grid;
-   justify-content:baseline;
-   align-items: center;
-   padding-left: 1rem;
-   padding-right: 1rem;
-   min-width: 30rem;
-   min-height: 37rem;
-   box-shadow: 0px 0px 6px  rgba(82, 4, 82, 0.308);
-   background: rgba(82, 4, 82, 0.308);
-   position: relative;
-   overflow: hidden;
+.header-main-div{
+   height:60px;
+   background: linear-gradient(0deg, rgba(228,228,228,1) -1%, rgba(224,147,165,1) 0%, rgba(223,114,139,1) 23%, rgba(222,89,119,1) 32%, rgba(221,53,91,1) 48%, rgba(220,28,71,1) 62%, rgba(219,6,54,1) 81%);
 }
-.biger{
-    border: 3px solid black;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+main{
+    height:calc(100vh - 60px);
+    position: relative; 
 }
-#cube-one{
-   width: 6rem;
-   height: 6rem;
-   top: -2rem;
-   left: -3rem;
-   position: absolute;
-   background:rgb(255,255,255,.1);
-   animation: cube2 4s linear infinite; 
-
+.record-backg{
+    height: 15rem;
+    z-index: -6;
+    background-image: url("foot.jpg");
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    filter: blur(.5px);
 }
 
-#cube-two{
-    width: 6rem;
-    height: 6rem;
-    top: 35rem;
-    left: 27rem;
+.record-data{
+    z-index: 3;
+    background-color:#cbc3e3f6	;
+    overflow-y: scroll;
+    height: calc(100% - 10rem);
+    width: 100%; 
     position: absolute;
-    background: rgb(255,255,255,.1);
-    animation: cube 4s linear infinite; 
-}
- 
- @keyframes cube {
-    0%{
-        transform: translateY(-37rem);
-    }
- }
- @keyframes cube2 {
-    0%{
-        transform: translateY(37rem);
-    }
- }
+    top: 10rem ;
+    left: 0;     
+    border-top-left-radius:3rem;
+    border-top-right-radius:3rem;
+    box-shadow: 0 0 100px -1px black;
 
- .outer-cantainer::before{
-    position: absolute;
-    content: "";
-    width: 140%;
-    height: 140%;
-    top: -20rem;
-    left: -25rem;
-    rotate: -37deg;
-    background: rgb(255,255,255,.2);
-    box-shadow: 0 0 5px  black;
-    border-radius: 30px;
 }
-
-form{
-    padding: .5rem;
-    width: 90%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-}
-input{
-    box-sizing: border-box;
-    padding: 2rem;
-    color: white;
-    background-color: rgba(255, 255, 255, 0);  
-}
-input[type="text"]{
-    margin-top: 1rem;
-    width: 90%;
-    border-top:none ;
-    border-left:none;
-    border-right:none ;
-    border-bottom:3px solid grey ;
-}
-input[type="password"]{
-    margin-top: 1rem;
-    width: 90%;
-    padding-left: 2rem;
-    border-top:none ;
-    border-left:none;
-    border-right:none ;
-    border-bottom:3px solid grey ;   
-}
-::placeholder{
-    color: rgba(255, 255, 255, 0.858);
-}
-.login{
-    padding-top: .5rem;
-    min-width: 100%;
-    min-height: 4rem;
-    font-size: 2rem;
+.record-data > h2{
+    padding: .5rem 0;
+    width: 100%;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content:space-around;
-    box-shadow: 0 0 5px black;
-    border-radius: 20px;
-    border-bottom:2px solid white;
-   z-index: 2;
 }
-.login i{
-    font-size: 4rem;
+.match-card {
+    text-align: center;
+    margin-top: 1rem;
+}
+.div2{
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.832); */
+    background-color: rgba(255, 245, 238, 0.873);
+}
+.match-card > .div2{
+    overflow: hidden;
+    padding: .5rem 0;
+    display: grid;
+    grid-template-rows: 4rem;
+    grid-template-columns:2fr 1fr 2fr;
+}
+.match-card > .div2 > span{
+    overflow: hidden;
+}
+.match-card > .div2 > span > h2{
+    white-space: nowrap;
+}
+.match-card .div2 span:nth-of-type(1){
+    align-self: center;
+}
+.match-card .div2 span:nth-of-type(3){
+    align-self: center;
+}
+.second-match-card{
+    margin-top:.4rem;
+    margin-left: .3rem;
+    margin-right: .3rem;
+    background-color:rgba(44, 18, 192, 0.411);
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 2fr 1fr 2fr;
+    border-radius: .5rem;
+    text-transform: uppercase;
 }
