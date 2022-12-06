@@ -8,6 +8,21 @@ let image = document.querySelector('#img');
 let prev = document.querySelector('#prev');
 let next = document.querySelector('#next');
 let body = document.querySelector('body');
+let progress = document.querySelector('.second_line');
+
+
+
+// progress work
+music.addEventListener('timeupdate',(event) =>{
+    const{currentTime , duration} = event.srcElement;
+    let progress_time = (currentTime / duration) * 100;
+    progress.style.width =`${progress_time}%`
+
+     if ( progress.style.width == "100%") {
+            nextbtn();        
+     }
+});
+
 
 // for play function
 const playmusic = () => {
@@ -15,7 +30,6 @@ const playmusic = () => {
         music.play();
         play.classList.replace('fa-play', 'fa-pause');
 };
-
 // for pause function
 const pausemusic = () => {
         isplay = false;
@@ -62,13 +76,18 @@ const loadmusic = () => {
 }
 loadmusic();
 
-next.addEventListener('click', () => {
+const nextbtn = () => {
         songcount++;
         loadmusic();
         playmusic();
-});
-prev.addEventListener('click', () => {
+};
+const previous = () => {
         songcount--;
         loadmusic();
         playmusic();
-});
+};
+
+prev.addEventListener('click',previous)
+next.addEventListener('click',nextbtn)
+
+
