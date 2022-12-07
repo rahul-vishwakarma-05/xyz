@@ -13,16 +13,6 @@ let progress = document.querySelector('.second_line');
 
 
 // progress work
-music.addEventListener('timeupdate',(event) =>{
-    const{currentTime , duration} = event.srcElement;
-    let progress_time = (currentTime / duration) * 100;
-    progress.style.width =`${progress_time}%`
-
-     if ( progress.style.width == "100%") {
-            nextbtn();        
-     }
-});
-
 
 // for play function
 const playmusic = () => {
@@ -86,8 +76,51 @@ const previous = () => {
         loadmusic();
         playmusic();
 };
+let tymefrist = document.querySelector('#tymefrist');
+let tymelast = document.querySelector('#tymelast');
+music.addEventListener('timeupdate', (event) => {
+        const { currentTime, duration } = event.srcElement;
+        let progress_time = (currentTime / duration) * 100;
+        progress.style.width = `${progress_time}%`
 
-prev.addEventListener('click',previous)
-next.addEventListener('click',nextbtn)
+        if (progress.style.width == `${progress_time}%`) {
+             nextbtn();
+        }    
+    
+      //audio time update     
+
+        let min_duration = Math.floor(duration / 60);
+        let sec_duration = Math.floor(duration % 60);
+       
+        let total_duration = `${min_duration}:${sec_duration}`
+       if (duration) {
+        tymelast.innerText=`${total_duration}`        
+       }
+
+       // audio frist time update
+       
+       let min_currentTime = Math.floor(currentTime / 60);
+       let sec_currentTime = Math.floor(currentTime % 60);
+      
+       let total_currentTime = `${min_currentTime}:${sec_currentTime}`
+      if (currentTime) {
+        tymefrist.innerText=`${total_currentTime}`        
+      }
+      
+});
+ const line = document.querySelector('.line');
+ line.addEventListener('click', setProgress);      
+
+ function setProgress(e) {
+        const width = this.clientWidth
+        const clickX = e.offsetX
+        const duration = music.duration
+      
+        music.currentTime = (clickX / width) * duration;
+      playmusic();      
+}
+
+prev.addEventListener('click', previous)
+next.addEventListener('click', nextbtn)
 
 
