@@ -55,6 +55,10 @@ body{
     background-color: rgba(225,225, 225, 0.2);
     border-radius: 10px;
     box-shadow: 0 0 5px black;
+
+}
+.line:hover{
+    cursor: pointer;
 }
 .second_line{
     position: absolute;
@@ -62,4 +66,19 @@ body{
     height: 95%;
     background-color: rgb(0, 0, 35);
     border-radius: 10px;
+}
+.second_line:hover{
+    cursor: pointer;
+}
+.tyme_total{
+    display: flex;
+    justify-content: space-between;
+}
+.tyme_total > h4{
+  padding-left: 10px;
+  padding-right: 10px; 
+  cursor: pointer;
+}
+.tyme_total > h4:hover{
+   cursor: pointer;
 }
